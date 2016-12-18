@@ -2,18 +2,18 @@
 
 <h3>Введите значения переменных функции <span class="label label-info"><%= @type[:func] %></span></h3>
 
-<div class="container body-container"><div class="row"><div class="col-xs-8 cols-md-8">
-
-  <form action="/calc/<%= @type[:path_to] %>" method="post" class="form-horizontal" id = "theForm">
+    <form action="/calc/" method="get" class="form-horizontal" id = "calc_form">
     <div class="form-group">
-      <input type="number" placeholder="Первая переменная" class="form-control" name="spelling" id="a">
+        <input type="number" placeholder="Первая переменная"
+               value="0" class="form-control" name="a" id="a"></div>
+    <div class="form-group">
+        <input type="<%= @type[:second_form_type] %>"
+               placeholder="Вторя переменная" class="form-control" name="b" id="b" value="1">
     </div>
-    <div class="form-group">
-      <input type="<%= @type[:second_form_type] %>" placeholder="Вторя переменная" class="form-control" name="valueInLanguage" id="b">
+    <div class="form-group col-xs-6">
+        <input type="hidden" value="<%= @type[:action]%>" class="form-control" name="f" id="f">
     </div>
     <button class="btn btn-primary btn-1g" id="submit">Посчитать</button>
-  </form>
-</div>
-  <div class="col-xs-4 cols-md-4"></div>
-</div></div>
+    </form>
+
 <hr/>
