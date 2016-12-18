@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get 'form/:type', to: 'calculator#form'
   get 'result/:type/:a/:b', to: 'calculator#res'
-  get 'res', to: 'calculator#res'
+  get 'res/:value', to: 'calculator#res'
+  get 'calculate/:type/:a/:b', to: 'calculator#calculate'
   # get 'form/:type', to: 'calculator#form'
   # get 'form_div', to: 'calculator#form_div'
   # get 'form_mult', to: 'calculator#form_mult'

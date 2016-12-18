@@ -11,7 +11,13 @@ class CalculatorController < ApplicationController
     render :form
   end
 
+  def calculate
+
+    redirect_to '/res/21'
+  end
+
   def res
+    @result = params[:value]
     render :res
   end
 
