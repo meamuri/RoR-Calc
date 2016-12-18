@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
-  get 'calculator/index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'calculator#index'
-  get 'form_add', to: 'calculator#form_add'
-  get 'form_sub', to: 'calculator#form_sub'
-  get 'form_div', to: 'calculator#form_div'
-  get 'form_mult', to: 'calculator#form_mult'
-  get 'form_sin', to: 'calculator#form_sin'
-  get 'form_pow', to: 'calculator#form_pow'
-  get 'form_sqrt', to: 'calculator#form_sqrt'
+
+  get 'form/:type', to: 'calculator#form'
+  get 'result/:type/:a/:b', to: 'calculator#res'
+  get 'res', to: 'calculator#res'
+  # get 'form/:type', to: 'calculator#form'
+  # get 'form_div', to: 'calculator#form_div'
+  # get 'form_mult', to: 'calculator#form_mult'
+  # get 'form_sin', to: 'calculator#form_sin'
+  # get 'form_pow', to: 'calculator#form_pow'
+  # get 'form_sqrt', to: 'calculator#form_sqrt'
+  #
+  # post 'add', to: 'calculator#add'
+  # post 'sub', to: 'calculator#sub'
+  # # post 'div', to: 'calculator#div'
+  # # post 'mult', to: 'calculator#mult'
+  # # post 'sin', to: 'calculator#sin'
+  # # post 'pow', to: 'calculator#pow'
+  # # post 'sqrt', to: 'calculator#sqrt'
+
 end

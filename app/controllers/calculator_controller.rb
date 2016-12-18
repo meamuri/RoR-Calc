@@ -2,33 +2,46 @@ class CalculatorController < ApplicationController
   def index
   end
 
-  def form_add
-    @type = 'add'
+  def form
+    @type = {
+        func: get_type_of_func(params[:type]),
+        path_to: 'calculator/res/' + params[:type],
+        second_form_type: 'number'
+    }
     render :form
   end
 
-  def form_sub
-    render :form
+  def res
+    render :res
   end
 
-  def form_div
-    render :form
-  end
+  private
 
-  def form_mult
-    render :form
-  end
+  def get_type_of_func(type)
+    f = 'f: '
+    if type == 'add'
+      return f + 'a + b'
+    end
+    if type == 'sub'
+      return f + 'a - b'
+    end
+    if type == 'mult'
+      return f + 'a * b'
+    end
+    if type == 'div'
+      return f + 'a / b'
+    end
 
-  def form_sin
-    render :form
-  end
+    if type == 'pow'
+      return f + 'pow(x, k)'
+    end
+    if type == 'sqrt'
+      return f + 'sqrt(x)'
+    end
 
-  def form_pow
-    render :form
-  end
+    return f + 'sin(x)'
 
-  def form_sqrt
-    render :form
+
   end
 
 end
