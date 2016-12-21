@@ -1,6 +1,10 @@
 $actions = %w(add sub mult div sqrt pow sin)
 
 class Calc
+  def self.func_in_actions?(type)
+    %w(add sub mult div sqrt pow sin).include?(type)
+  end
+
   def self.get_second_form_type(type)
     if type == 'sqrt' or type == 'sin' or type == 'pow'
       'hidden'

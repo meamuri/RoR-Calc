@@ -3,7 +3,11 @@ class CalculatorController < ApplicationController
   end
 
   def form
-     @type = {
+    unless Calc.func_in_actions?(params[:type])
+        redirect_to '/go404/'
+        return
+    end
+    @type = {
         func: Calc.get_type_of_func(params[:type]),
         action: params[:type],
         second_form_type: Calc.get_second_form_type(params[:type])
@@ -22,6 +26,10 @@ class CalculatorController < ApplicationController
   def res
     @result = params[:value]
     render :res
+  end
+
+  def go404
+    render :notFound
   end
 
 end
